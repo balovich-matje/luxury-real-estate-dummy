@@ -9,7 +9,13 @@ function initVideoScrub() {
     end: 'max',
     scrub: 1,
     onUpdate: (self) => {
-      videoBg.currentTime = self.progress * videoBg.duration;
+      const t = self.progress * videoBg.duration;
+      // fastSeek snaps to nearest keyframe — much cheaper than precise seeking
+      if (videoBg.fastSeek) {
+        videoBg.fastSeek(t);
+      } else {
+        videoBg.currentTime = t;
+      }
     }
   });
 }
