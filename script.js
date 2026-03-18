@@ -20,10 +20,11 @@ function initVideoScrub() {
   });
 }
 
-if (videoBg.readyState >= 1) {
+// canplaythrough = browser has buffered enough to play without interruption
+if (videoBg.readyState >= 4) {
   initVideoScrub();
 } else {
-  videoBg.addEventListener('loadedmetadata', initVideoScrub, { once: true });
+  videoBg.addEventListener('canplaythrough', initVideoScrub, { once: true });
 }
 
 /* ── Hero entrance ── */
