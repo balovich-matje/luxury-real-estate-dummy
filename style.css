@@ -277,6 +277,7 @@ body {
   color: var(--muted);
   max-width: 42ch;
   letter-spacing: .03em;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.9);
 }
 
 .contact__form {
@@ -295,13 +296,14 @@ body {
   font-size: .6rem;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
 }
 
 .form-field input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(201,169,110,.2);
+  border-bottom: 1px solid rgba(201,169,110,.5);
   padding: .7rem 0;
   font-family: var(--f-body);
   font-size: .95rem;
@@ -312,7 +314,7 @@ body {
   transition: border-color .3s ease;
 }
 
-.form-field input::placeholder { color: var(--muted); opacity: .45; }
+.form-field input::placeholder { color: var(--muted); opacity: .75; }
 .form-field input:focus         { border-bottom-color: var(--gold); }
 .form-field input.is-error      { border-bottom-color: #B05E5E; }
 
