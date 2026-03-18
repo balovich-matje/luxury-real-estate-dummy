@@ -13,15 +13,39 @@
   --f-body:     'Outfit', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--bg); /* dark fallback while video loads */
+}
 
 body {
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: var(--f-body);
   font-weight: 300;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ─── FIXED VIDEO BACKGROUND ─────────────────────── */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1; /* same z-index, but after video in DOM → renders on top */
 }
 
 /* ─── TOP ACCENT LINE ─────────────────────────────── */
@@ -42,34 +66,10 @@ body {
   min-height: 100dvh;
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
-}
-
-.hero__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Inward masking gradient — edges fade into page background */
-.hero__mask {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(to top,    var(--bg) 0%, rgba(13,13,11,.9) 18%, rgba(13,13,11,0) 48%),
-    linear-gradient(to bottom, var(--bg) 0%, rgba(13,13,11,0) 28%),
-    linear-gradient(to right,  rgba(13,13,11,.75) 0%, rgba(13,13,11,0) 22%),
-    linear-gradient(to left,   rgba(13,13,11,.75) 0%, rgba(13,13,11,0) 22%),
-    radial-gradient(ellipse at 50% 50%, rgba(13,13,11,0) 30%, rgba(13,13,11,.25) 100%);
 }
 
 .hero__content {
   position: relative;
-  z-index: 2;
   padding: 0 8vw 10vh 8vw;
   max-width: 860px;
 }
