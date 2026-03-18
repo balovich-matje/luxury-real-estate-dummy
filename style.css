@@ -8,7 +8,7 @@
   --bg:         #0D0D0B;
   --gold:       #C9A96E;
   --text:       #EAE2D4;
-  --muted:      #5E564D;
+  --muted:      #B8AFA3;
   --f-display:  'Cormorant Garant', serif;
   --f-body:     'Outfit', sans-serif;
 }
@@ -44,7 +44,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.62);
   z-index: -1; /* same z-index, but after video in DOM → renders on top */
 }
 
@@ -94,6 +94,7 @@ body {
   color: var(--text);
   margin-bottom: 2.2rem;
   opacity: 0;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.5);
 }
 
 .hero__headline em {
@@ -218,6 +219,7 @@ body {
   letter-spacing: -.01em;
   color: var(--text);
   margin-bottom: 1.6rem;
+  text-shadow: 0 2px 28px rgba(0,0,0,0.6);
 }
 
 .feature__body {
@@ -226,6 +228,7 @@ body {
   line-height: 1.85;
   color: var(--muted);
   max-width: 36ch;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.9);
 }
 
 .feature--2 .feature__body { margin-left: auto; }

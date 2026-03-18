@@ -1,5 +1,27 @@
 gsap.registerPlugin(ScrollTrigger);
 
+/* ── Video scroll-scrub ── */
+const videoBg = document.querySelector('.video-bg');
+
+function initVideoScrub() {
+  gsap.to(videoBg, {
+    currentTime: videoBg.duration,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: document.body,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 1,
+    }
+  });
+}
+
+if (videoBg.readyState >= 1) {
+  initVideoScrub();
+} else {
+  videoBg.addEventListener('loadedmetadata', initVideoScrub, { once: true });
+}
+
 /* ── Hero entrance ── */
 gsap.set(['.hero__eyebrow', '.hero__headline', '.hero__sub'], { opacity: 0, y: 32 });
 gsap.set('.hero__scroll', { opacity: 0 });
