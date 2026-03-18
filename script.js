@@ -4,14 +4,12 @@ gsap.registerPlugin(ScrollTrigger);
 const videoBg = document.querySelector('.video-bg');
 
 function initVideoScrub() {
-  gsap.to(videoBg, {
-    currentTime: videoBg.duration,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: document.body,
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 1,
+  ScrollTrigger.create({
+    start: 0,
+    end: 'max',
+    scrub: 1,
+    onUpdate: (self) => {
+      videoBg.currentTime = self.progress * videoBg.duration;
     }
   });
 }
